@@ -17,10 +17,11 @@
   color: var(--color-text);
 }
 
+html,
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: #ffffff;
+  background-color: var(--color-theme-1);
 }
 
 h1,
