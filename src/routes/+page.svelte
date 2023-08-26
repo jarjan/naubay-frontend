@@ -1,10 +1,6 @@
 <script lang="ts">
 	import Counter from './Counter.svelte';
-
-	fetch('https://naubay.onrender.com/')
-		// .then((res) => res.json())
-		.then((res) => res.text())
-		.then(console.log);
+	export let data;
 </script>
 
 <svelte:head>
@@ -17,10 +13,8 @@
 		Naubay
 	</h1>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
 
+	{data.content}
 	<Counter />
 </section>
 
