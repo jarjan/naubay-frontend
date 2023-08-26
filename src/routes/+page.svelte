@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
 	export let data;
 </script>
 
@@ -10,7 +9,6 @@
 
 <section>
 	{data.products.length} products are {data.state}
-	<Counter />
 </section>
 
 <style>

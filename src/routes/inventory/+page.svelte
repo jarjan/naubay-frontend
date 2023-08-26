@@ -31,8 +31,28 @@
     margin: auto;
     text-align: center;
   }
+
   .inventory__submit {
     display: block;
     margin: 10px auto;
   }
+
+@media (max-width: 600px) {
+  .inventory__table tr th:nth-child(4) {
+    display: none;
+  }
+  .inventory__table tr {
+    position: relative;
+  }
+  .inventory__table tr td {
+    padding-bottom: 80px;
+  }
+  .inventory__table tr td:nth-child(4) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+  }
+}
 </style>

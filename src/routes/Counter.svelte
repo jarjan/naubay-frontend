@@ -87,6 +87,7 @@
 		overflow: hidden;
 		text-align: center;
 		position: relative;
+		flex: 1;
 	}
 
 	.counter-viewport strong {
@@ -96,7 +97,7 @@
 		height: 100%;
 		font-weight: 400;
 		color: var(--color-theme-1);
-		font-size: 4rem;
+		font-size: 2rem;
 		align-items: center;
 		justify-content: center;
 	}
