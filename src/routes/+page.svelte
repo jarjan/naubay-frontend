@@ -9,11 +9,6 @@
 </svelte:head>
 
 <section>
-	<h1>
-		Naubay
-	</h1>
-
-
 	{data.content}
 	<Counter />
 </section>

@@ -6,7 +6,7 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
+		<a href="/">
 			<img src={logo} alt="SvelteKit" />
 		</a>
 	</div>
@@ -16,8 +16,8 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Inventory</a>
+			<li aria-current={$page.url.pathname === '/inventory' ? 'page' : undefined}>
+				<a href="/inventory">Inventory</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/forecast' ? 'page' : undefined}>
 				<a href="/forecast">Forecast</a>
@@ -71,7 +71,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: #012533;
 	}
 
 	svg {
@@ -89,6 +89,7 @@
 		padding: 0;
 		margin: 0;
 		height: 3em;
+		width: initial;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -105,13 +106,12 @@
 	li[aria-current='page']::before {
 		--size: 6px;
 		content: '';
-		width: 0;
-		height: 0;
+		width: 100%;
+		height: 4px;
 		position: absolute;
 		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
+		left: 0;
+		background-color: var(--color-theme-2);
 	}
 
 	nav a {
@@ -119,7 +119,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: var(--color-text);
+		color: #ffffff;
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
@@ -129,6 +129,19 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--color-theme-2);
+	}
+
+
+	@media (max-width: 400px) {
+		.corner,
+		svg {
+			display: none;
+		}
+
+		nav,
+		ul {
+			width: 100%;
+		}
 	}
 </style>
