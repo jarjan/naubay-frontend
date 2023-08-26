@@ -6,15 +6,12 @@ export async function load({ params }) {
   let content = "Loading...";
 
   await fetch("https://naubay.onrender.com/")
-    // .then((res) => res.json())
     .then((res) => res.json())
     .then((data) => {
-      content = data;
-      console.log({ data });
+      content = data.kez;
     })
     .catch(() => {
       content = "Failed to load data";
-      console.log({ content });
     });
 
   return {
