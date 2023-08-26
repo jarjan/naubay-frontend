@@ -1,30 +1,29 @@
 <script lang="ts">
 	import Counter from '../Counter.svelte';
-  import products from "$lib/data/products.json";
+
+  export let data;
 </script>
 
 <div class="inventory">
   <table class="inventory__table">
     <tr>
+      <th></th>
       <th>product name</th>
       <th>product price</th>
+      <th>product quantity</th>
     </tr>
-    {#each products as product}
+    {#each data.products as product}
     <tr>
+      <td><img src="{product.image}" alt="{product.name}" height="50px" /></td>
       <td>{product.name}</td>
-      <td>€{(Math.random() * 20).toFixed(2)}</td>
+      <td>€{product.price}</td>
+      <td>
+        <Counter on:update={(event) => console.log(`${product.name}: ${event.detail}`)} />
+      </td>
     </tr>
     {/each}
   </table>
-  <h1>Conclude the day:</h1>
-  <form class="conclude__form">
-    <!-- list of sold items for the day -->
-    {#each products as product}
-    <div class="conclude_item"><span class="conclude_item_name">{product.name.toUpperCase()}:</span><Counter /></div>
-    {/each}
-
-    <button class="conclude__button" type="submit">Conclude</button>
-  </form>
+  <button class="inventory__submit" type="submit">Conclude the day</button>
 </div>
 
 <style>
@@ -32,31 +31,8 @@
     margin: auto;
     text-align: center;
   }
-
-  .conclude__form {
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .conclude_item {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .conclude_item_name {
-    flex-grow: 1;
-    font-size: 2rem;
-    margin-right: 1rem;
-    text-align: right;
-  }
-
-  .conclude__button {
-    align-self: flex-end;
-    
+  .inventory__submit {
+    display: block;
+    margin: 10px auto;
   }
 </style>

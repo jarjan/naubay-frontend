@@ -9,7 +9,7 @@
 </svelte:head>
 
 <section>
-	{data.content}
+	{data.products.length} products are {data.state}
 	<Counter />
 </section>
 
@@ -20,9 +20,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>

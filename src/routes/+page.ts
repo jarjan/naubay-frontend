@@ -3,20 +3,20 @@
 export const prerender = true;
 
 export async function load({ fetch, url }) {
-  let content = "Loading...";
-
-  const path = url.searchParams.get("q") || "";
-
-  await fetch(`https://naubay.onrender.com/${path}`)
+  let state = "loading";
+  let products = [];
+  await fetch(`https://naubay.onrender.com/products`)
     .then((res) => res.json())
     .then((data) => {
-      content = data.kez;
+      products = data;
+      state = "loaded";
     })
     .catch(() => {
-      content = "Failed to load data";
+      state = "error";
     });
 
   return {
-    content,
+    state,
+    products,
   };
 }
