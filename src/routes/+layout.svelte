@@ -11,11 +11,37 @@
 	</main>
 
 	<footer>
-		<p>Developed by ❤️ in Berlin.</p>
+		<p>Developed by <span class="heart">❤️</span> in Berlin.</p>
 	</footer>
 </div>
 
 <style>
+	@keyframes pump {
+		0% {
+			transform: scale(0.9);
+		}
+		20% {
+			transform: scale(1);
+		}
+		40% {
+			transform: scale(0.9);
+		}
+		60% {
+			transform: scale(1);
+		}
+		80% {
+			transform: scale(0.9);
+		}
+		100% {
+			transform: scale(0.9);
+		}
+	}
+
+	.heart {
+		display: inline-block;
+		animation: pump 1s infinite;
+	}
+
 	.app {
 		display: flex;
 		flex-direction: column;
