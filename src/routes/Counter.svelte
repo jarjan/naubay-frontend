@@ -2,6 +2,8 @@
   import { createEventDispatcher } from 'svelte';
 	import { spring } from 'svelte/motion';
 
+	const dispatch = createEventDispatcher();
+
 	export let count = 0;
 
 	const displayed_count = spring();
@@ -19,8 +21,7 @@
 		} else {
 			count -= 1;
 		}
-		const dispatch = createEventDispatcher();
-		dispatch('update', count);
+		dispatch('update', String(count));
 	}
 </script>
 
