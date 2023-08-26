@@ -21,6 +21,8 @@
     PointElement,
     CategoryScale
   );
+
+  ChartJS.defaults.font.family = "'JetBrains Mono Variable', 'sans-serif'";
 </script>
 
 <div class="forecast">

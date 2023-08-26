@@ -9,8 +9,7 @@
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
   "devDependencies": {
-    "@fontsource/fira-mono": "^4.5.10",
-    "@fontsource/roboto-slab": "^5.0.9",
+    "@fontsource-variable/jetbrains-mono": "^5.0.9",
     "@neoconfetti/svelte": "^1.0.0",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/kit": "^1.20.4",

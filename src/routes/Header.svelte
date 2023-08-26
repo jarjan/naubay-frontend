@@ -71,7 +71,7 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
+		--background: #012533;
 	}
 
 	svg {
@@ -106,13 +106,12 @@
 	li[aria-current='page']::before {
 		--size: 6px;
 		content: '';
-		width: 0;
-		height: 0;
+		width: 100%;
+		height: 4px;
 		position: absolute;
 		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
+		left: 0;
+		background-color: var(--color-theme-2);
 	}
 
 	nav a {
@@ -120,7 +119,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: var(--color-text);
+		color: #ffffff;
 		font-weight: 700;
 		font-size: 0.8rem;
 		text-transform: uppercase;
@@ -130,7 +129,7 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--color-theme-2);
 	}
 
 

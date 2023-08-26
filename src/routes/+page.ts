@@ -7,7 +7,7 @@ export async function load({ params }) {
 
   await fetch("https://naubay.onrender.com/")
     // .then((res) => res.json())
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((data) => {
       content = data;
       console.log({ data });
