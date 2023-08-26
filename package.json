@@ -8,6 +8,11 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
   },
+  "overrides": {
+    "svelte-chartjs": {
+      "svelte": ">=4.x"
+    }
+  },
   "devDependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.0.9",
     "@neoconfetti/svelte": "^1.0.0",
