@@ -22,7 +22,7 @@
     {#each products as product}
     <div class="conclude_item"><span class="conclude_item_name">{product.name.toUpperCase()}:</span><Counter /></div>
     {/each}
-    
+
     <button class="conclude__button" type="submit">Conclude</button>
   </form>
 </div>
@@ -53,5 +53,10 @@
     font-size: 2rem;
     margin-right: 1rem;
     text-align: right;
+  }
+
+  .conclude__button {
+    align-self: flex-end;
+    
   }
 </style>
