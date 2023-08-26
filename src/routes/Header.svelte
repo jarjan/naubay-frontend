@@ -89,6 +89,7 @@
 		padding: 0;
 		margin: 0;
 		height: 3em;
+		width: initial;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -130,5 +131,18 @@
 
 	a:hover {
 		color: var(--color-theme-1);
+	}
+
+
+	@media (max-width: 420px) {
+		.corner,
+		svg {
+			display: none;
+		}
+
+		nav,
+		ul {
+			width: 100%;
+		}
 	}
 </style>
