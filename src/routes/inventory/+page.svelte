@@ -40,18 +40,21 @@
 
   .inventory__product_img {
     height: 50px;
-    /* position: absolute; */
+    transition: transform 0.2s ease-in-out;
   }
   .inventory__product_img:hover {
     transform: scale(3);
+  }
+
+
+  .inventory__table tr {
+    padding: 10px;
+    transition: background-color 0.2s ease-in-out;
   }
   .inventory__table tr:has(> :not(th)):hover {
     background-color: var(--color-bg-2);
   }
 
-  .inventory__table td {
-    padding: 10px;
-  }
 
   @media (max-width: 600px) {
     .inventory__table tr th:nth-child(4) {
