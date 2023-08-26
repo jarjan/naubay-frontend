@@ -84,11 +84,11 @@
 <svelte:window on:keydown={keydown} />
 
 <svelte:head>
-	<title>Sverdle</title>
+	<title>Wordle</title>
 	<meta name="description" content="A Wordle clone written in SvelteKit" />
 </svelte:head>
 
-<h1 class="visually-hidden">Sverdle</h1>
+<h1 class="visually-hidden">Wordle</h1>
 
 <form
 	method="POST"
@@ -100,7 +100,7 @@
 		};
 	}}
 >
-	<a class="how-to-play" href="/sverdle/how-to-play">How to play</a>
+	<a class="how-to-play" href="/wordle/how-to-play">How to play</a>
 
 	<div class="grid" class:playing={!won} class:bad-guess={form?.badGuess}>
 		{#each Array.from(Array(6).keys()) as row (row)}

@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte';
 	import { spring } from 'svelte/motion';
 
-	let count = 0;
+	const dispatch = createEventDispatcher();
+
+	export let count = 0;
 
 	const displayed_count = spring();
 	$: displayed_count.set(count);
@@ -11,10 +14,19 @@
 		// handle negative numbers
 		return ((n % m) + m) % m;
 	}
+
+	function handleClick(name: 'increment' | 'decrement') {
+		if(name === 'increment') {
+			count += 1;
+		} else {
+			count -= 1;
+		}
+		dispatch('update', String(count));
+	}
 </script>
 
 <div class="counter">
-	<button on:click={() => (count > 0 ? count -= 1 : 0)} aria-label="Decrease the counter by one">
+	<button on:click={() => handleClick('decrement')} aria-label="Decrease the counter by one">
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5" />
 		</svg>
@@ -27,7 +39,7 @@
 		</div>
 	</div>
 
-	<button on:click={() => (count += 1)} aria-label="Increase the counter by one">
+	<button on:click={() => handleClick('increment')} aria-label="Increase the counter by one">
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" />
 		</svg>
@@ -75,6 +87,7 @@
 		overflow: hidden;
 		text-align: center;
 		position: relative;
+		flex: 1;
 	}
 
 	.counter-viewport strong {
@@ -84,7 +97,7 @@
 		height: 100%;
 		font-weight: 400;
 		color: var(--color-theme-1);
-		font-size: 4rem;
+		font-size: 2rem;
 		align-items: center;
 		justify-content: center;
 	}

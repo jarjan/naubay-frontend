@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Counter from './Counter.svelte';
 	export let data;
 </script>
 
@@ -9,8 +8,7 @@
 </svelte:head>
 
 <section>
-	{data.content}
-	<Counter />
+	{data.products.length} products are {data.state}
 </section>
 
 <style>
@@ -20,9 +18,5 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
 	}
 </style>
