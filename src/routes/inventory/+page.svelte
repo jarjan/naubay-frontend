@@ -5,12 +5,14 @@
 </script>
 
 <div class="inventory">
+  <h1>Manage your inventory here</h1>
+
   <table class="inventory__table">
     <tr>
       <th></th>
-      <th>product name</th>
-      <th>product price</th>
-      <th>product quantity</th>
+      <th>name</th>
+      <th>price</th>
+      <th>quantity</th>
     </tr>
     {#each data.products as product}
     <tr>
@@ -39,17 +41,18 @@
   }
 
   .inventory__product_img {
-    height: 50px;
+    vertical-align: middle;
+    height: 60px;
     transition: transform 0.2s ease-in-out;
   }
   .inventory__product_img:hover {
-    transform: scale(3);
+    transform: scale(2.5);
   }
-
 
   .inventory__table tr {
     padding: 10px;
     transition: background-color 0.2s ease-in-out;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
   .inventory__table tr:has(> :not(th)):hover {
     background-color: var(--color-bg-2);
@@ -63,13 +66,13 @@
     .inventory__table tr {
       position: relative;
     }
-    .inventory__table tr td {
-      padding-bottom: 80px;
+    .inventory__table tr td:nth-child(3) {
+      vertical-align: top;
+
     }
     .inventory__table tr td:nth-child(4) {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      bottom: 10px;
       right: 0;
       padding: 0;
     }
