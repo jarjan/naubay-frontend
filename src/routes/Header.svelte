@@ -6,7 +6,7 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
+		<a href="/">
 			<img src={logo} alt="SvelteKit" />
 		</a>
 	</div>
@@ -16,8 +16,8 @@
 			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
 		</svg>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Inventory</a>
+			<li aria-current={$page.url.pathname === '/inventory' ? 'page' : undefined}>
+				<a href="/inventory">Inventory</a>
 			</li>
 			<li aria-current={$page.url.pathname === '/forecast' ? 'page' : undefined}>
 				<a href="/forecast">Forecast</a>
@@ -133,7 +133,7 @@
 	}
 
 
-	@media (max-width: 420px) {
+	@media (max-width: 400px) {
 		.corner,
 		svg {
 			display: none;

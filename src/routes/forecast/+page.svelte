@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Line } from "svelte-chartjs";
-  import { data } from "./data";
   import {
     Chart as ChartJS,
     Title,
@@ -11,6 +10,8 @@
     PointElement,
     CategoryScale,
   } from 'chart.js';
+  import forecastData from "$lib/data/forecast.json";
+  import products from "$lib/data/products.json";
 
   ChartJS.register(
     Title,
@@ -29,32 +30,14 @@
   <div class="forecast__filter">
     <select>
       <option>all</option>
-      <option>power bread</option>
-      <option>plain bread</option>
-      <option>jam</option>
-      <option>ice coffe</option>
-      <option>croissant</option>
-      <option>ice coffe latter</option>
-      <option>tiramisu croissant</option>
-      <option>cacao deep</option>
-      <option>pain au chocolat</option>
-      <option>almond croissant</option>
-      <option>ice milk tea</option>
-      <option>gateau chocolat</option>
-      <option>baguette</option>
-      <option>cheese cake</option>
-      <option>lemon ade</option>
-      <option>orange pound</option>
-      <option>wiener</option>
-      <option>valina latte</option>
-      <option>berry ade</option>
-      <option>tiramisu</option>
-      <option>merinque cookies</option>
+      {#each products as product}
+      <option>{product.name}</option>
+      {/each}
     </select>
   </div>
 
 
-  <Line {data} options={{ responsive: true }} />
+  <Line data={forecastData} options={{ responsive: true }} />
 </div>
 
 
