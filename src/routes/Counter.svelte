@@ -19,6 +19,7 @@
 		if(name === 'increment') {
 			count += 1;
 		} else {
+			if(count > 0)
 			count -= 1;
 		}
 		dispatch('update', String(count));
