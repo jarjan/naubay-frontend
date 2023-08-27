@@ -1,4 +1,4 @@
-import sales from "./sales.json";
+import sales from "../../../lib/data/sales.json";
 
 // interface SaleItem {
 //   datetime: string;
