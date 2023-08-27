@@ -69,9 +69,9 @@
 		padding: 12px;
 	}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
+	@media (max-width: 600px) {
+		main {
+			padding: 0.5rem;
 		}
 	}
 </style>

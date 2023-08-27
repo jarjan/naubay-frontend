@@ -6,7 +6,10 @@ const initialValue = browser
   ? JSON.parse(window.localStorage.getItem("orderDB")) ?? defaultValue
   : defaultValue;
 
-type DBType = Record<string, Record<string, number>>;
+type DBType = Record<
+  string,
+  Record<string, { count: number; price: number; total: number }>
+>;
 
 const db = writable<DBType>(initialValue);
 
