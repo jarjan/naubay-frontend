@@ -117,7 +117,7 @@
 
 .order__table {
 	border-collapse: collapse;
-	margin: 0 10px;
+	margin: 0 auto;
 }
 .order__table td,
 .order__table th {
@@ -176,10 +176,14 @@
 	box-shadow: 0 0 100px 100px rgb(255 255 255 / 85%);
 }
 .payment__types {
-
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .payment__logo {
-	height: 40px;
+	width: 100px;
 }
 
 .product__table {
