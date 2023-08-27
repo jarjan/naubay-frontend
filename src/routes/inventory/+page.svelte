@@ -37,12 +37,10 @@
 </div>
 
 <style>
-
   .inventory__submit {
     display: block;
     margin: 30px auto;
   }
-
 
   .product__table {
     margin: auto;
@@ -77,7 +75,6 @@
   .product__table td {
     padding: 10px;
   }
-
 
   @media (max-width: 600px) {
     .product__table td {
