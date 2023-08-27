@@ -27,7 +27,7 @@
 	<meta name="description" content="Bestellung für eine Woche im Voraus" />
 </svelte:head>
 
-<div class="order">
+<div class="order {isPaying ? 'backdrop': ''}">
   <h1>Bestellung für eine Woche im Voraus</h1>
 
 	<ul class='order__week'>
@@ -70,16 +70,26 @@
 </div>
 
 <style>
+.order {
+	overflow: hidden;
+	position: relative;
+}
+
 .order__week {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	list-style: none;
-	margin: 20px;
+	margin: 20px 0;
 	padding: 0;
 	text-align: center;
 }
+
+.order__week::-webkit-scrollbar {
+	display: none;
+}
+
 .order__week button {
 	font-size: 1rem;
 	background-color: #ffffff;
@@ -94,6 +104,7 @@
 }
 
 .order__payment {
+	z-index: 123;
 	position: fixed;
 	top: 30px;
 	bottom: 30px;
@@ -101,8 +112,9 @@
 	right: 30px;
 	min-width: 80%;
 	background: var(--color-bg-1);
-	color: #ffffff;
+	border: 2px solid var(--color-theme-2);
 	transition: all 0.2s ease-in-out;
+	box-shadow: none;
 }
 
 .order__payment.close {
@@ -111,6 +123,7 @@
 .order__payment.open {
 	display: block;
 	transform: translateY(0);
+	box-shadow: 0 0 100px 100px rgb(255 255 255 / 85%);
 }
 
 .product__table {
@@ -123,6 +136,7 @@
 	vertical-align: middle;
 	height: 60px;
 	transition: transform 0.2s ease-in-out;
+	position: relative;
 }
 
 .product__name {
@@ -132,6 +146,7 @@
 
 .product__img:hover {
 	transform: scale(2.5);
+	z-index: 1;
 }
 
 .product__table tr {
@@ -148,10 +163,16 @@
 }
 
 @media (max-width: 600px) {
+	.order__week button{
+		padding: 0.25rem 0.5rem
+	}
+
 	.product__table td {
 		padding: 0;
 	}
 
+	.product__table tr td:nth-child(2),
+	.product__table tr th:nth-child(2),
 	.product__table tr th:nth-child(5) {
 		display: none;
 	}
