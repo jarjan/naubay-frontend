@@ -11,7 +11,7 @@
 	</main>
 
 	<footer>
-		<p>Developed with <span class="heart">❤️</span> in Berlin.</p>
+		<p>Entwickelt mit <span class="heart">❤️</span> in Berlin.</p>
 	</footer>
 </div>
 
