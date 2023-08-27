@@ -5,7 +5,7 @@
 </script>
 
 <div>
-  <h1>Wochendetails</h1>
+  <h1>Prognose für diese Woche</h1>
   <div class="weeks">
     <ul>
       {#each Object.entries(weekdays) as [weekkey, weekday]}
