@@ -1,16 +1,16 @@
 {
   "labels": [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday"
+    "Montag",
+    "Dienstag",
+    "Mittwoch",
+    "Donnerstag",
+    "Freitag",
+    "Samstag",
+    "Sonntag"
   ],
   "datasets": [
     {
-      "label": "Forecast this week",
+      "label": "Prognose für diese Woche",
       "backgroundColor": "rgba(255,99,132,0.2)",
       "borderColor": "rgba(255,99,132,1)",
       "borderWidth": 1,
@@ -19,7 +19,7 @@
       "data": [65, 59, 80, 81, 56, 55, 40]
     },
     {
-      "label": "Past week",
+      "label": "Letzte Woche",
       "backgroundColor": "rgba(0,99,255,0.2)",
       "borderColor": "rgba(0,99,255,1)",
       "borderWidth": 1,
@@ -28,7 +28,7 @@
       "data": [60, 70, 30, 20, 6, 80, 60]
     },
     {
-      "label": "Actual this week",
+      "label": "Tatsächlich diese Woche",
       "backgroundColor": "rgba(157, 174, 138 ,0.2)",
       "borderColor": "rgba(157, 174, 138 ,1)",
       "borderWidth": 1,
