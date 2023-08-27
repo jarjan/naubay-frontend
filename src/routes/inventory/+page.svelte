@@ -1,13 +1,14 @@
 <script lang="ts">
 	import Counter from '../Counter.svelte';
   import db from '$lib/store/inventory'
+	import products from '$lib/data/products.json';
 
   function handleUpdate(name: string, count: string) {
     const currentDB = $db;
     db.set({...currentDB, [name]: Number(count)})
   }
 
-  export let data;
+  // export let data;
 </script>
 
 <div class="inventory">
@@ -20,7 +21,7 @@
       <th>Preis</th>
       <th>Anzahl</th>
     </tr>
-    {#each data.products as product}
+    {#each products as product}
     <tr>
       <td><img class="product__img" src="{product.image}" alt="{product.name}" /></td>
       <td>{product.category}</td>

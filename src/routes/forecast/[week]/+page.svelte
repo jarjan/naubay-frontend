@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  export let data;
+	import products from '$lib/data/products.json';
+  // export let data;
   $: currentWeek = $page.params.week;
 </script>
 
@@ -10,7 +11,7 @@
     <th>Name</th>
     <th>Anzahl</th>
   </tr>
-  {#each data.products as product}
+  {#each products as product}
   <tr>
     <td><img class="product__img" src="{product.image}" alt="{product.name}" /></td>
     <td><span class="product__name">{product.name}</span></td>

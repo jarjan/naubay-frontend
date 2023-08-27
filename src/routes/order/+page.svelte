@@ -4,10 +4,12 @@
 	import googleLogo from '$lib/images/google-pay.svg';
 	import paypalLogo from '$lib/images/paypal.svg';
   import db from '$lib/store/order'
+	import products from '$lib/data/products.json';
+
 	let isPaying = false;
 	let selectedDay = 'Montag';
 
-  function handleUpdate(name: string, count: string, price: number, day: string) {
+  function handleUpdate( day: string, name: string, count: string, price?: string) {
     const currentDB = $db;
     db.set({
 			...currentDB,
@@ -15,8 +17,8 @@
 				...currentDB[day] || {},
 				[name]: {
 					count: Number(count),
-					price: price,
-					total: Number(count) * price
+					price: Number(price),
+					total: Number(count) * Number(price)
 				}
 			}
 		})
@@ -26,7 +28,7 @@
 		isPaying = true;
 	}
 
-  export let data;
+  // export let data;
 </script>
 
 <svelte:head>
@@ -55,14 +57,14 @@
       <th>Preis</th>
       <th>Anzahl</th>
     </tr>
-    {#each data.products as product}
+    {#each products as product}
     <tr>
       <td><img class="product__img" src="{product.image}" alt="{product.name}" /></td>
       <td>{product.category}</td>
       <td><span class="product__name">{product.name}</span></td>
       <td>€{product.price}</td>
       <td>
-        <Counter count={$db?.[selectedDay]?.[product.name]?.count || 0} on:update={(event) => handleUpdate(product.name, event.detail, data.products.find((p) => p.name === product.name).price, selectedDay)} />
+        <Counter count={$db?.[selectedDay]?.[product.name]?.count || 0} on:update={(event) => handleUpdate(selectedDay, product.name, event.detail, products.find((p) => p.name === product.name)?.price)} />
       </td>
     </tr>
     {/each}
