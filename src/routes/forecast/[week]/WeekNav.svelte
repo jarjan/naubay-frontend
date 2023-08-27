@@ -40,6 +40,7 @@
     background-color: #ffffff;
     border-color: #ffffff;
     padding: 0.5rem 1rem;
+    display: block;
 	}
 
   .weeks li a:hover {
