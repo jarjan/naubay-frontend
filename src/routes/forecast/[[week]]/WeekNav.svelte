@@ -34,24 +34,21 @@
     text-align: center;
   }
 
-	li, li a {
+	.weeks li a {
 		font-size: 1rem;
     background-color: #ffffff;
     border-color: #ffffff;
     padding: 0.5rem 1rem;
 	}
 
-  li a:hover {
+  .weeks li a:hover {
     border: none;
     text-decoration: none;
+		color: var(--color-theme-2);
   }
 
-	li[aria-current='date'] a {
+	.weeks li[aria-current='date'] a {
     border-bottom: 2px solid;
 		border-bottom-color: var(--color-theme-2);
-	}
-
-	a:hover {
-		color: var(--color-theme-2);
 	}
 </style>
