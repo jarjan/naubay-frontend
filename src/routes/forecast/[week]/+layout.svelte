@@ -12,9 +12,7 @@
   } from 'chart.js';
   import forecastData from "$lib/data/forecast.json";
   import products from "$lib/data/products.json";
-  import { page } from '$app/stores';
   import WeekNav from "./WeekNav.svelte";
-  console.log('asdasd', $page.params.week);
 
   ChartJS.register(
     Title,
