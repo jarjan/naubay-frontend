@@ -1,5 +1,10 @@
 <script lang="ts">
 	import Counter from '../Counter.svelte';
+  import db from '$lib/store/inventory'
+
+  function handleUpdate(name: string, count: string) {
+    db.set({[name]: count})
+  }
 
   export let data;
 </script>
@@ -22,7 +27,7 @@
       <td><span class="inventory__product_name">{product.name}</span></td>
       <td>€{product.price}</td>
       <td>
-        <Counter on:update={(event) => console.log(`${product.name}: ${event.detail}`)} />
+        <Counter count={Number($db[product.name] || '0')} on:update={(event) => handleUpdate(product.name, event.detail)} />
       </td>
     </tr>
     {/each}
@@ -39,7 +44,7 @@
 
   .inventory__submit {
     display: block;
-    margin: 10px auto;
+    margin: 30px auto;
   }
 
   .inventory__product_img {
