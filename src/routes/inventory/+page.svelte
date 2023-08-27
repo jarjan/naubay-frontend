@@ -16,10 +16,10 @@
   <table class="product__table">
     <tr>
       <th></th>
-      <th>category</th>
-      <th>name</th>
-      <th>price</th>
-      <th>quantity</th>
+      <th>Kategorie</th>
+      <th>Name</th>
+      <th>Preis</th>
+      <th>Anzahl</th>
     </tr>
     {#each data.products as product}
     <tr>
@@ -33,7 +33,7 @@
     </tr>
     {/each}
   </table>
-  <button class="inventory__submit" type="submit">Conclude the day</button>
+  <button class="inventory__submit" type="submit">Den Tag abschließen</button>
 </div>
 
 <style>

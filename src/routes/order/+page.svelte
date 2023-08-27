@@ -23,30 +23,30 @@
 </script>
 
 <svelte:head>
-	<title>Order</title>
-	<meta name="description" content="Order for the week" />
+	<title>Bestellung</title>
+	<meta name="description" content="Bestellung für eine Woche im Voraus" />
 </svelte:head>
 
 <div class="order">
-  <h1>Order one week ahead</h1>
+  <h1>Bestellung für eine Woche im Voraus</h1>
 
 	<ul class='order__week'>
 		<li><button class="{selectedDay == 'monday' ? 'selected' : ''}" on:click={() => selectedDay = 'monday'}>Montag</button></li>
 		<li><button class="{selectedDay == 'tuesday' ? 'selected' : ''}" on:click={() => selectedDay = 'tuesday'}>Dienstag</button></li>
-		<li><button class="{selectedDay == 'wednesday' ? 'selected' : ''}" on:click={() => selectedDay = 'wednesday'}>Mitwoch</button></li>
+		<li><button class="{selectedDay == 'wednesday' ? 'selected' : ''}" on:click={() => selectedDay = 'wednesday'}>Mittwoch</button></li>
 		<li><button class="{selectedDay == 'thursday' ? 'selected' : ''}" on:click={() => selectedDay = 'thursday'}>Donnerstag</button></li>
 		<li><button class="{selectedDay == 'friday' ? 'selected' : ''}" on:click={() => selectedDay = 'friday'}>Freitag</button></li>
 		<li><button class="{selectedDay == 'saturday' ? 'selected' : ''}" on:click={() => selectedDay = 'saturday'}>Samstag</button></li>
-		<li><button class="{selectedDay == 'sunday' ? 'selected' : ''}" on:click={() => selectedDay = 'sunday'}>Sontag</button></li>
+		<li><button class="{selectedDay == 'sunday' ? 'selected' : ''}" on:click={() => selectedDay = 'sunday'}>Sonntag</button></li>
 	</ul>
 
   <table class="product__table">
     <tr>
       <th></th>
-      <th>category</th>
-      <th>name</th>
-      <th>price</th>
-      <th>quantity</th>
+      <th>Kategorie</th>
+      <th>Name</th>
+      <th>Preis</th>
+      <th>Anzahl</th>
     </tr>
     {#each data.products as product}
     <tr>
@@ -61,11 +61,11 @@
     {/each}
   </table>
 
-  <button class="order__submit" type="submit" on:click={handleSubmit}>Submit order</button>
+  <button class="order__submit" type="submit" on:click={handleSubmit}>Bestellung abschicken</button>
 </div>
 
 <div class="order__payment {isPaying ? 'open' : 'close'}">
-	<h1>Payment</h1>
+	<h1>Bezahlung</h1>
 	<div></div>
 </div>
 
