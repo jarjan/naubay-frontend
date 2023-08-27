@@ -1,16 +1,16 @@
 <script lang="ts">
   import { page } from '$app/stores';
-  const weekDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-  $: currentWeek = $page.params.week || weekDays[(new Date().getDay()+6)%7];
+  import { currentWeekday, weekdays } from '$lib/store/weekdays';
+  $: currentWeek = $page.params.week || currentWeekday();
 </script>
 
 <div>
-  <h1>Week Details</h1>
+  <h1>Prognose für diese Woche</h1>
   <div class="weeks">
     <ul>
-      {#each weekDays as day}
-        <li aria-current={currentWeek === day ? 'date' : undefined}>
-          <a href={`/forecast/${day}`}>{day.toLocaleUpperCase()}</a>
+      {#each Object.entries(weekdays) as [weekkey, weekday]}
+        <li aria-current={currentWeek === weekkey ? 'date' : undefined}>
+          <a href={`/forecast/${weekkey}`}>{weekday.de.toLocaleUpperCase()}</a>
         </li>
       {/each}
     </ul>
