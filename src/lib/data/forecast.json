@@ -10,7 +10,7 @@
   ],
   "datasets": [
     {
-      "label": "Current week",
+      "label": "Forecast this week",
       "backgroundColor": "rgba(255,99,132,0.2)",
       "borderColor": "rgba(255,99,132,1)",
       "borderWidth": 1,
@@ -26,6 +26,15 @@
       "hoverBackgroundColor": "rgba(0,99,255,0.4)",
       "hoverBorderColor": "rgba(0,99,255,1)",
       "data": [60, 70, 30, 20, 6, 80, 60]
+    },
+    {
+      "label": "Actual this week",
+      "backgroundColor": "rgba(157, 174, 138 ,0.2)",
+      "borderColor": "rgba(157, 174, 138 ,1)",
+      "borderWidth": 1,
+      "hoverBackgroundColor": "rgba(157, 174, 138 ,0.4)",
+      "hoverBorderColor": "rgba(157, 174, 138 ,1)",
+      "data": [64, 61]
     }
   ]
 }

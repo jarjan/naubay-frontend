@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import logo from '$lib/images/logo.svg';
 	import github from '$lib/images/github.svg';
+	const weekDays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  let currentWeek = weekDays[(new Date().getDay()+6)%7];
 </script>
 
 <header>
@@ -22,8 +24,8 @@
 			<li aria-current={$page.url.pathname === '/inventory' ? 'page' : undefined}>
 				<a href="/inventory">Inventar</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/forecast' ? 'page' : undefined}>
-				<a href="/forecast">Prognose</a>
+			<li aria-current={$page.url.pathname.includes('/forecast') ? 'page' : undefined}>
+				<a href={`/forecast/${currentWeek}`}>Forecast</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
