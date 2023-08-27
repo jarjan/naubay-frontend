@@ -105,9 +105,9 @@
 	</table>
 
 	<div class="payment__types">
-		<img class="payment__logo" src={appleLogo} alt="Apple Pay" />
-		<img class="payment__logo" src={googleLogo} alt="Google Pay" />
-		<img class="payment__logo" src={paypalLogo} alt="PayPal" />
+		<img class="payment__apple {/^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? '' : 'visually-hidden'}" src={appleLogo} alt="Apple Pay" />
+		<img class="payment__google {navigator.userAgent.indexOf("Chrome") != -1 ? '' : 'visually-hidden'}" src={googleLogo} alt="Google Pay" />
+		<img class="payment__paypal" src={paypalLogo} alt="PayPal" />
 	</div>
 </div>
 
@@ -184,8 +184,23 @@
 	justify-content: center;
 	align-items: center;
 }
-.payment__logo {
+
+.payment__apple {
 	width: 100px;
+	cursor: pointer;
+}
+.payment__google {
+	width: 150px;
+	cursor: pointer;
+}
+.payment__paypal {
+	width: 100px;
+	margin-top: 20px;
+	cursor: pointer;
+	border-radius: 10px;
+	background-color: gold;
+	padding: 10px;
+	cursor: pointer;
 }
 
 .product__table {
