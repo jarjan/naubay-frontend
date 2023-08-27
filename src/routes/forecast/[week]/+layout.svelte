@@ -36,9 +36,7 @@
   });
 
   let justValue = "0";
-  console.log('category: ', justValue);
   $: forecastByCategory = forecastData[justValue];
-  console.log('forecastByCategory: ', forecastByCategory);
 </script>
 
 <div class="forecast">
