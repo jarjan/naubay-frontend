@@ -15,7 +15,7 @@
   <tr>
     <td><img class="product__img" src="{product.image}" alt="{product.name}" /></td>
     <td><span class="product__name">{product.name}</span></td>
-    <td>{Math.floor(Math.random()*100)}</td>
+    <td>{Math.floor(Math.random()*100)+5}</td>
   </tr>
   {/each}
 </table>
