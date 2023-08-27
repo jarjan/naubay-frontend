@@ -1,22 +1,7 @@
 [
-  { "id": "1", "name": "power bread" },
-  { "id": "2", "name": "plain bread" },
-  { "id": "3", "name": "jam" },
-  { "id": "5", "name": "croissant" },
-  { "id": "6", "name": "coffe latter" },
-  { "id": "7", "name": "tiramisu croissant" },
-  { "id": "8", "name": "cacao deep" },
-  { "id": "9", "name": "pain au chocolat" },
-  { "id": "10", "name": "almond croissant" },
-  { "id": "11", "name": "milk tea" },
-  { "id": "12", "name": "gateau chocolat" },
-  { "id": "13", "name": "baguette" },
-  { "id": "14", "name": "cheese cake" },
-  { "id": "15", "name": "lemon ade" },
-  { "id": "16", "name": "orange pound" },
-  { "id": "17", "name": "wiener" },
-  { "id": "18", "name": "valina latte" },
-  { "id": "19", "name": "berry ade" },
-  { "id": "20", "name": "tiramisu" },
-  { "id": "21", "name": "merinque cookies" }
+  { "id": "0", "name": "Alle" },
+  { "id": "1", "name": "Brote" },
+  { "id": "2", "name": "Brötchen" },
+  { "id": "3", "name": "Süßes" },
+  { "id": "4", "name": "Feinkost" }
 ]

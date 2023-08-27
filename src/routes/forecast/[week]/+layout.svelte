@@ -10,6 +10,7 @@
     PointElement,
     CategoryScale,
   } from 'chart.js';
+  import Select from 'svelte-select';
   import forecastData from "$lib/data/forecast.json";
   import products from "$lib/data/products.json";
   import WeekNav from "./WeekNav.svelte";
@@ -25,18 +26,26 @@
   );
 
   ChartJS.defaults.font.family = "'JetBrains Mono Variable', 'sans-serif'";
+
+  // products category selection with all options
+  const selectOptions = products.map((product) => {
+    return {
+      label: product.name,
+      value: product.id,
+    };
+  });
+
+  let justValue = "0";
+  console.log('category: ', justValue);
+  $: forecastByCategory = forecastData[justValue];
+  console.log('forecastByCategory: ', forecastByCategory);
 </script>
 
 <div class="forecast">
   <div class="forecast__filter">
-    <select>
-      <option>all</option>
-      {#each products as product}
-      <option>{product.name}</option>
-      {/each}
-    </select>
+    <Select items={selectOptions} placeholderAlwaysShow value="0" placeholder="Kategorie wählen" bind:justValue />
   </div>
-  <Line data={forecastData} options={{ responsive: true }} />
+  <Line data={forecastByCategory} options={{ responsive: true }} />
   <br/>
   <WeekNav />
   <slot />
