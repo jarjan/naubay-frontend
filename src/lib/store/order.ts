@@ -6,16 +6,7 @@ const initialValue = browser
   ? JSON.parse(window.localStorage.getItem("orderDB")) ?? defaultValue
   : defaultValue;
 
-type DBType = Record<
-  | "monday"
-  | "tuesday"
-  | "wednesday"
-  | "thursday"
-  | "friday"
-  | "saturday"
-  | "sunday",
-  Record<string, number>
->;
+type DBType = Record<string, Record<string, number>>;
 
 const db = writable<DBType>(initialValue);
 

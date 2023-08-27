@@ -2,8 +2,9 @@
 	import Counter from '../Counter.svelte';
   import db from '$lib/store/order'
 	let isPaying = false;
+	let selectedDay = 'monday';
 
-  function handleUpdate(name: string, count: string, day: "monday" | "tuesday" | "wednesday" | "thursday" | "friday"| "saturday" | "sunday") {
+  function handleUpdate(name: string, count: string, day: string) {
     const currentDB = $db;
     db.set({
 			...currentDB,
@@ -29,7 +30,15 @@
 <div class="order">
   <h1>Order one week ahead</h1>
 
-
+	<ul class='order__week'>
+		<li><button class="{selectedDay == 'monday' ? 'selected' : ''}" on:click={() => selectedDay = 'monday'}>Montag</button></li>
+		<li><button class="{selectedDay == 'tuesday' ? 'selected' : ''}" on:click={() => selectedDay = 'tuesday'}>Dienstag</button></li>
+		<li><button class="{selectedDay == 'wednesday' ? 'selected' : ''}" on:click={() => selectedDay = 'wednesday'}>Mitwoch</button></li>
+		<li><button class="{selectedDay == 'thursday' ? 'selected' : ''}" on:click={() => selectedDay = 'thursday'}>Donnerstag</button></li>
+		<li><button class="{selectedDay == 'friday' ? 'selected' : ''}" on:click={() => selectedDay = 'friday'}>Freitag</button></li>
+		<li><button class="{selectedDay == 'saturday' ? 'selected' : ''}" on:click={() => selectedDay = 'saturday'}>Samstag</button></li>
+		<li><button class="{selectedDay == 'sunday' ? 'selected' : ''}" on:click={() => selectedDay = 'sunday'}>Sontag</button></li>
+	</ul>
 
   <table class="product__table">
     <tr>
@@ -46,7 +55,7 @@
       <td><span class="product__name">{product.name}</span></td>
       <td>€{product.price}</td>
       <td>
-        <Counter count={$db?.['monday']?.[product.name] || 0} on:update={(event) => handleUpdate(product.name, event.detail, 'monday')} />
+        <Counter count={$db?.[selectedDay]?.[product.name] || 0} on:update={(event) => handleUpdate(product.name, event.detail, selectedDay)} />
       </td>
     </tr>
     {/each}
@@ -61,7 +70,24 @@
 </div>
 
 <style>
-
+.order__week {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	list-style: none;
+	margin: 20px;
+	padding: 0;
+	text-align: center;
+}
+.order__week button {
+	font-size: 1rem;
+	background-color: #ffffff;
+	border-color: #ffffff;
+}
+.order__week button.selected {
+	border-bottom-color: var(--color-theme-2);
+}
 .order__submit {
 	margin: 30px auto;
 	display: block;
