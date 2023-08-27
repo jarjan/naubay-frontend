@@ -12,7 +12,7 @@
   } from 'chart.js';
   import Select from 'svelte-select';
   import forecastData from "$lib/data/forecast.json";
-  import products from "$lib/data/products.json";
+  import categories from "$lib/data/categories.json";
   import WeekNav from "./WeekNav.svelte";
 
   ChartJS.register(
@@ -27,11 +27,11 @@
 
   ChartJS.defaults.font.family = "'JetBrains Mono Variable', 'sans-serif'";
 
-  // products category selection with all options
-  const selectOptions = products.map((product) => {
+  // categories category selection with all options
+  const selectOptions = categories.map((category) => {
     return {
-      label: product.name,
-      value: product.id,
+      label: category.name,
+      value: category.id,
     };
   });
 
