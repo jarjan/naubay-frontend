@@ -7,6 +7,7 @@
 	import products from '$lib/data/products.json';
 
 	let isPaying = false;
+	let hasPayed = false;
 	let selectedDay = 'Montag';
 
   function handleUpdate( day: string, name: string, count: string, price?: string) {
@@ -104,11 +105,19 @@
 	</tr>
 	</table>
 
+	{#if hasPayed}
+		<h2 style="text-align: center;">
+			Danke für Ihre Bestellung!
+		</h2>
+	{/if}
+
+	{#if !hasPayed}
 	<div class="payment__types">
-		<img class="payment__apple {/^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? '' : 'visually-hidden'}" src={appleLogo} alt="Apple Pay" />
-		<img class="payment__google {navigator.userAgent.indexOf("Chrome") != -1 ? '' : 'visually-hidden'}" src={googleLogo} alt="Google Pay" />
-		<img class="payment__paypal" src={paypalLogo} alt="PayPal" />
+		<img on:click={() => {hasPayed = true}} class="payment__apple {/^((?!chrome|android).)*safari/i.test(navigator.userAgent) ? '' : 'visually-hidden'}" src={appleLogo} alt="Apple Pay" />
+		<img on:click={() => {hasPayed = true}} class="payment__google {navigator.userAgent.indexOf("Chrome") != -1 ? '' : 'visually-hidden'}" src={googleLogo} alt="Google Pay" />
+		<img on:click={() => {hasPayed = true}} class="payment__paypal" src={paypalLogo} alt="PayPal" />
 	</div>
+	{/if}
 </div>
 
 <style>
