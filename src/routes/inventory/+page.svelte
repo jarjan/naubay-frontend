@@ -12,7 +12,6 @@
 
 <div class="inventory">
   <h1>Manage your inventory here</h1>
-
   <table class="product__table">
     <tr>
       <th></th>
@@ -52,6 +51,7 @@
     vertical-align: middle;
     height: 60px;
     transition: transform 0.2s ease-in-out;
+    position: relative;
   }
 
   .product__name {
@@ -61,6 +61,7 @@
 
   .product__img:hover {
     transform: scale(2.5);
+    z-index: 1;
   }
 
   .product__table tr {
@@ -81,6 +82,8 @@
       padding: 0;
     }
 
+    .product__table tr td:nth-child(2),
+	  .product__table tr th:nth-child(2),
     .product__table tr th:nth-child(5) {
       display: none;
     }

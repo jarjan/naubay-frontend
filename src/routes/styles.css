@@ -101,7 +101,6 @@ button:focus:not(:focus-visible) {
 }
 
 button {
-  appearance: none;
   border: 2px solid var(--color-theme-2);
   font-size: 2rem;
   padding: 0.5rem 1rem;
