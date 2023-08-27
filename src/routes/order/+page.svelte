@@ -1,16 +1,23 @@
 <script lang="ts">
 	import Counter from '../Counter.svelte';
+	import appleLogo from '$lib/images/apple-pay.svg';
+	import googleLogo from '$lib/images/google-pay.svg';
+	import paypalLogo from '$lib/images/paypal.svg';
   import db from '$lib/store/order'
 	let isPaying = false;
-	let selectedDay = 'monday';
+	let selectedDay = 'Montag';
 
-  function handleUpdate(name: string, count: string, day: string) {
+  function handleUpdate(name: string, count: string, price: number, day: string) {
     const currentDB = $db;
     db.set({
 			...currentDB,
 			[day]: {
 				...currentDB[day] || {},
-				[name]: Number(count)
+				[name]: {
+					count: Number(count),
+					price: price,
+					total: Number(count) * price
+				}
 			}
 		})
   }
@@ -31,13 +38,13 @@
   <h1>Bestellung für eine Woche im Voraus</h1>
 
 	<ul class='order__week'>
-		<li><button class="{selectedDay == 'monday' ? 'selected' : ''}" on:click={() => selectedDay = 'monday'}>Montag</button></li>
-		<li><button class="{selectedDay == 'tuesday' ? 'selected' : ''}" on:click={() => selectedDay = 'tuesday'}>Dienstag</button></li>
-		<li><button class="{selectedDay == 'wednesday' ? 'selected' : ''}" on:click={() => selectedDay = 'wednesday'}>Mittwoch</button></li>
-		<li><button class="{selectedDay == 'thursday' ? 'selected' : ''}" on:click={() => selectedDay = 'thursday'}>Donnerstag</button></li>
-		<li><button class="{selectedDay == 'friday' ? 'selected' : ''}" on:click={() => selectedDay = 'friday'}>Freitag</button></li>
-		<li><button class="{selectedDay == 'saturday' ? 'selected' : ''}" on:click={() => selectedDay = 'saturday'}>Samstag</button></li>
-		<li><button class="{selectedDay == 'sunday' ? 'selected' : ''}" on:click={() => selectedDay = 'sunday'}>Sonntag</button></li>
+		<li><button class="{selectedDay == 'Montag' ? 'selected' : ''}" on:click={() => selectedDay = 'Montag'}>Montag</button></li>
+		<li><button class="{selectedDay == 'Dienstag' ? 'selected' : ''}" on:click={() => selectedDay = 'Dienstag'}>Dienstag</button></li>
+		<li><button class="{selectedDay == 'Mittwoch' ? 'selected' : ''}" on:click={() => selectedDay = 'Mittwoch'}>Mittwoch</button></li>
+		<li><button class="{selectedDay == 'Donnerstag' ? 'selected' : ''}" on:click={() => selectedDay = 'Donnerstag'}>Donnerstag</button></li>
+		<li><button class="{selectedDay == 'Freitag' ? 'selected' : ''}" on:click={() => selectedDay = 'Freitag'}>Freitag</button></li>
+		<li><button class="{selectedDay == 'Samstag' ? 'selected' : ''}" on:click={() => selectedDay = 'Samstag'}>Samstag</button></li>
+		<li><button class="{selectedDay == 'Sonntag' ? 'selected' : ''}" on:click={() => selectedDay = 'Sonntag'}>Sonntag</button></li>
 	</ul>
 
   <table class="product__table">
@@ -55,7 +62,7 @@
       <td><span class="product__name">{product.name}</span></td>
       <td>€{product.price}</td>
       <td>
-        <Counter count={$db?.[selectedDay]?.[product.name] || 0} on:update={(event) => handleUpdate(product.name, event.detail, selectedDay)} />
+        <Counter count={$db?.[selectedDay]?.[product.name]?.count || 0} on:update={(event) => handleUpdate(product.name, event.detail, data.products.find((p) => p.name === product.name).price, selectedDay)} />
       </td>
     </tr>
     {/each}
@@ -66,13 +73,56 @@
 
 <div class="order__payment {isPaying ? 'open' : 'close'}">
 	<h1>Bezahlung</h1>
-	<div></div>
+
+	<table class="order__table">
+	{#each Object.keys($db) as day}
+		<tr><th colspan="4">{day}</th></tr>
+		{#each Object.keys($db[day]) as product}
+			{#if $db[day][product].count > 0}
+				<tr>
+					<td>{product}</td>
+					<td>€{$db[day][product].price}</td>
+					<td>x{$db[day][product].count}</td>
+					<td>€{$db[day][product].total.toFixed(2)}</td>
+				</tr>
+			{/if}
+		{/each}
+	{/each}
+	<tr>
+		<th colspan="4">Summe</th>
+	</tr>
+	<tr>
+		<td colspan="4" style="text-align: right">
+			€{Object.keys($db).reduce((acc, day) => {
+				return acc + Object.keys($db[day]).reduce((acc, product) => {
+					return acc + $db[day][product].total
+				}, 0)
+			}, 0).toFixed(2)}
+		</td>
+	</tr>
+	</table>
+
+	<div class="payment__types">
+		<img class="payment__logo" src={appleLogo} alt="Apple Pay" />
+		<img class="payment__logo" src={googleLogo} alt="Google Pay" />
+		<img class="payment__logo" src={paypalLogo} alt="PayPal" />
+	</div>
 </div>
 
 <style>
 .order {
 	overflow: hidden;
 	position: relative;
+}
+
+.order__table {
+	border-collapse: collapse;
+	margin: 0 10px;
+}
+.order__table td,
+.order__table th {
+	padding: 4px;
+	border: 1px solid var(--color-theme-1)
 }
 
 .order__week {
@@ -106,11 +156,11 @@
 .order__payment {
 	z-index: 123;
 	position: fixed;
-	top: 30px;
-	bottom: 30px;
-	left: 30px;
-	right: 30px;
-	min-width: 80%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 30px;
 	background: var(--color-bg-1);
 	border: 2px solid var(--color-theme-2);
 	transition: all 0.2s ease-in-out;
@@ -124,6 +174,12 @@
 	display: block;
 	transform: translateY(0);
 	box-shadow: 0 0 100px 100px rgb(255 255 255 / 85%);
+}
+.payment__types {
+
+}
+.payment__logo {
+	height: 40px;
 }
 
 .product__table {
@@ -163,6 +219,9 @@
 }
 
 @media (max-width: 600px) {
+	.order__payment {
+		margin: 10px;
+	}
 	.order__week button{
 		padding: 0.25rem 0.5rem
 	}
