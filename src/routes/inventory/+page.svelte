@@ -3,7 +3,8 @@
   import db from '$lib/store/inventory'
 
   function handleUpdate(name: string, count: string) {
-    db.set({[name]: Number(count)})
+    const currentDB = $db;
+    db.set({...currentDB, [name]: Number(count)})
   }
 
   export let data;
