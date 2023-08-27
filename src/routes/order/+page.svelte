@@ -23,8 +23,8 @@
 </script>
 
 <svelte:head>
-	<title>Order</title>
-	<meta name="description" content="Order for the week" />
+	<title>Bestellung</title>
+	<meta name="description" content="Bestellung für eine Woche im Voraus" />
 </svelte:head>
 
 <div class="order">
