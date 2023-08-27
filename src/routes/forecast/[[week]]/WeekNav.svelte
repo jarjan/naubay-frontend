@@ -21,51 +21,34 @@
   .weeks {
 		display: flex;
 		justify-content: center;
-		--background: #012533;
 	}
 
-  ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
-		width: initial;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
+  .weeks ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    margin: 20px;
+    padding: 0;
+    text-align: center;
+  }
+
+	li, li a {
+		font-size: 1rem;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding: 0.5rem 1rem;
 	}
 
-	li {
-		position: relative;
-		height: 100%;
-	}
+  li a:hover {
+    border: none;
+    text-decoration: none;
+  }
 
-	li[aria-current='date']::before {
-		--size: 6px;
-		content: '';
-		width: 100%;
-		height: 4px;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: var(--color-theme-2);
-	}
-
-	.weeks a {
-		display: flex;
-		height: 100%;
-		align-items: center;
-		padding: 0 0.5rem;
-		color: #ffffff;
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		text-decoration: none;
-		transition: color 0.2s linear;
+	li[aria-current='date'] a {
+    border-bottom: 2px solid;
+		border-bottom-color: var(--color-theme-2);
 	}
 
 	a:hover {
