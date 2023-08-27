@@ -10,7 +10,7 @@
     <ul>
       {#each Object.entries(weekdays) as [weekkey, weekday]}
         <li aria-current={currentWeek === weekkey ? 'date' : undefined}>
-          <a href={`/forecast/${weekkey}`}>{weekday.de.toLocaleUpperCase()}</a>
+          <a href={`/forecast/${weekkey}`}>{weekday.de}</a>
         </li>
       {/each}
     </ul>
@@ -21,6 +21,7 @@
   .weeks {
 		display: flex;
 		justify-content: center;
+    margin-bottom: 2rem;
 	}
 
   .weeks ul {
@@ -39,6 +40,7 @@
     background-color: #ffffff;
     border-color: #ffffff;
     padding: 0.5rem 1rem;
+    display: block;
 	}
 
   .weeks li a:hover {
