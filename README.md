@@ -1,6 +1,6 @@
 # naubay-frontend
 
-Naubay is a project to help bakeries.
+Naubay is a project to help bakeries. Created during [BÄKO-Hackathon](https://www.baeko-hackathon.de).
 
 ## Creating a project
 
