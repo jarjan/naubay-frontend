@@ -12,7 +12,7 @@
 </script>
 
 <div class="inventory">
-  <h1>Manage your inventory here</h1>
+  <h1>Verwalten Sie hier Ihren Lagerbestand</h1>
   <table class="product__table">
     <tr>
       <th></th>
