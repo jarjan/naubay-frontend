@@ -115,10 +115,10 @@
 	<div class="payment__types">
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<img on:click={() => {hasPayed = true}} class="payment__apple {/^((?!chrome|android).)*safari/i.test(navigator?.userAgent) ? '' : 'visually-hidden'}" src={appleLogo} alt="Apple Pay" />
+		<img on:click={() => {hasPayed = true}} class="payment__apple" src={appleLogo} alt="Apple Pay" />
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<img on:click={() => {hasPayed = true}} class="payment__google {navigator?.userAgent.indexOf("Chrome") != -1 ? '' : 'visually-hidden'}" src={googleLogo} alt="Google Pay" />
+		<img on:click={() => {hasPayed = true}} class="payment__google" src={googleLogo} alt="Google Pay" />
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
 		<img on:click={() => {hasPayed = true}} class="payment__paypal" src={paypalLogo} alt="PayPal" />
