@@ -47,6 +47,7 @@
     height: 60px;
     transition: transform 0.2s ease-in-out;
   }
+
   .inventory__product_name {
     max-width: 150px;
     display: inline-block;
@@ -60,9 +61,11 @@
     transition: background-color 0.2s ease-in-out;
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   }
+
   .inventory__table tr:has(> :not(th)):hover {
     background-color: var(--color-bg-2);
   }
+
   .inventory__table td {
     padding: 10px;
   }
@@ -72,15 +75,19 @@
     .inventory__table td {
       padding: 0;
     }
+
     .inventory__table tr th:nth-child(5) {
       display: none;
     }
+
     .inventory__table tr {
       position: relative;
     }
+
     .inventory__table tr td:nth-child(4) {
       vertical-align: top;
     }
+
     .inventory__table tr td:nth-child(5) {
       position: absolute;
       bottom: 4px;
