@@ -25,7 +25,7 @@
 				<a href="/inventory">Inventar</a>
 			</li>
 			<li aria-current={$page.url.pathname.includes('/forecast') ? 'page' : undefined}>
-				<a href={`/forecast/${currentWeek}`}>Forecast</a>
+				<a href={`/forecast/${currentWeek}`}>Prognose</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
