@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Counter from '../Counter.svelte';
   import db from '$lib/store/order'
+	let isPaying = false;
 
   function handleUpdate(name: string, count: string, day: "monday" | "tuesday" | "wednesday" | "thursday" | "friday"| "saturday" | "sunday") {
     const currentDB = $db;
@@ -13,6 +14,10 @@
 		})
   }
 
+	function handleSubmit() {
+		isPaying = true;
+	}
+
   export let data;
 </script>
 
@@ -23,6 +28,8 @@
 
 <div class="order">
   <h1>Order one week ahead</h1>
+
+
 
   <table class="product__table">
     <tr>
@@ -44,9 +51,42 @@
     </tr>
     {/each}
   </table>
+
+  <button class="order__submit" type="submit" on:click={handleSubmit}>Submit order</button>
+</div>
+
+<div class="order__payment {isPaying ? 'open' : 'close'}">
+	<h1>Payment</h1>
+	<div></div>
 </div>
 
 <style>
+
+.order__submit {
+	margin: 30px auto;
+	display: block;
+}
+
+.order__payment {
+	position: fixed;
+	top: 30px;
+	bottom: 30px;
+	left: 30px;
+	right: 30px;
+	min-width: 80%;
+	background: var(--color-bg-1);
+	color: #ffffff;
+	transition: all 0.2s ease-in-out;
+}
+
+.order__payment.close {
+	transform: translateY(calc(100vh + 100px));
+}
+.order__payment.open {
+	display: block;
+	transform: translateY(0);
+}
+
 .product__table {
 	margin: auto;
 	text-align: center;
